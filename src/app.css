@@ -1,42 +1,28 @@
-.App {
-  text-align: center;
+.stats-wrapper {
+  position: relative;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.char-stats {
+  display: grid;
+  grid-template-columns: 1fr 2fr 20px;
+  grid-template-rows: 20px repeat(1fr);
+  width: 320px;
+  row-gap: 10px;
+  column-gap: 5px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  position: absolute;
+  left: 30px;
+  top: 20px;
+  background-image: url('./assets/starry_sky.jpg');
+  padding: 10px 20px;
   color: white;
+  font-family: 'Century Gothic', 'Gill Sans MT';
+  font-size: 15px;
+  text-transform: capitalize;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-button {
-  font-size: calc(10px + 2vmin);
+.header {
+  font-weight: bold;
+  color: bisque;
+  text-transform: uppercase;
 }

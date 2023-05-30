@@ -1,14 +1,6 @@
 {
-  "extends": [
-    "react-app",
-    "react-app/jest",
-    "standard",
-    "standard-jsx",
-    "standard-react"
-  ],
-  "plugins": [
-    "jsx-a11y"
-  ],
+  "extends": ["react-app", "react-app/jest", "standard", "standard-jsx", "standard-react"],
+  "plugins": ["jsx-a11y"],
   "rules": {
     "comma-dangle": [
       "error",
@@ -20,12 +12,19 @@
         "functions": "always-multiline"
       }
     ],
+    "space-before-function-paren": ["error", "never"],
+    "jsx-quotes": "off",
+    "quotes": "off",
     "no-undef": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-pascal-case": "off",
+    "react/jsx-quotes": "off",
     "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": ["off", {
-      "ignoreRestSiblings": true
-    }]
+    "@typescript-eslint/no-unused-vars": [
+      "off",
+      {
+        "ignoreRestSiblings": true
+      }
+    ]
   }
 }

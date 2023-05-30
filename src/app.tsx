@@ -1,43 +1,41 @@
-import { useState } from 'react'
-import { ReactComponent as Logo } from './logo.svg'
+import React from 'react'
 import './app.css'
+import { CharacterClass } from './constants'
+import { CharacterFactory } from './classes/CharacterFactory'
 
-export function App () {
-  const [count, setCount] = useState(0)
+export function App() {
+  const printStats = (charClass: CharacterClass) => {
+    const factory = CharacterFactory.getFactory(charClass)
+    const weapon = factory.getWeapon()
+    console.log(
+      `You have chosen a ${charClass.toLowerCase()} class who fights with a ${weapon.name} and does ${
+        weapon.damage
+      }hp of damage}`,
+    )
+  }
+
+  printStats(CharacterClass.FIGHTER)
+  printStats(CharacterClass.ASSASSIN)
+  printStats(CharacterClass.MAGE)
 
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <Logo className='App-logo' title='logo' />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type='button' onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className='App-link'
-            href='https://reactjs.org'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className='App-link'
-            href='https://vitejs.dev/guide/features.html'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+    <div className="stats-wrapper">
+      <div className="char-stats">
+        <div className="header">Class</div>
+        <div className="header">Weapon</div>
+        <div className="header">HP</div>
+        {Object.keys(CharacterClass).map((char, id) => {
+          const factory = CharacterFactory.getFactory(char as CharacterClass)
+          const weapon = factory.getWeapon()
+          return (
+            <React.Fragment key={id}>
+              <div>{char.toLowerCase()}</div>
+              <div>{weapon.name}</div>
+              <div>{weapon.damage}</div>
+            </React.Fragment>
+          )
+        })}
+      </div>
     </div>
   )
 }
